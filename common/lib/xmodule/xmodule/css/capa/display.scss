@@ -444,10 +444,11 @@ div.problem {
       margin-top: ($baseline / 2);
       margin-bottom: 0;
 
+        //TOFO: fix this code
       &:before {
         @extend %t-strong;
         display: inline;
-        content: "Answer: ";
+        content: "Resposta: ";
 
       }
       &:empty {

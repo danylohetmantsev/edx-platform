@@ -11422,3 +11422,13 @@ msgstr "Você ainda não favoritou nenhuma página do material didático"
 
 msgid "There %(articles_plur_verb)s %(cnt)s %(articles_plur)s in this level."
 msgstr "Há %(articles_plur_verb)s %(cnt)s %(articles_plur)s neste nível."
+
+#: wiki/templates/wiki/dir.html:46
+#, python-format
+msgid "There {{ articles_plur_verb }} {{ cnt }} {{ articles_plur }} in this level."
+msgstr "Há {{ articles_plur_verb }} {{ cnt }} {{ articles_plur }} neste nível."
+
+#: wiki/templates/wiki/dir.html:46
+#, python-format
+msgid "Answers are displayed within the problem"
+msgstr "As respostas são exibidas dentro do problema"
