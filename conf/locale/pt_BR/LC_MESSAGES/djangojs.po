@@ -11425,10 +11425,200 @@ msgstr "Há %(articles_plur_verb)s %(cnt)s %(articles_plur)s neste nível."
 
 #: wiki/templates/wiki/dir.html:46
 #, python-format
-msgid "There {{ articles_plur_verb }} {{ cnt }} {{ articles_plur }} in this level."
+msgid ""
+"There {{ articles_plur_verb }} {{ cnt }} {{ articles_plur }} in this level."
 msgstr "Há {{ articles_plur_verb }} {{ cnt }} {{ articles_plur }} neste nível."
 
 #: wiki/templates/wiki/dir.html:46
 #, python-format
 msgid "Answers are displayed within the problem"
 msgstr "As respostas são exibidas dentro do problema"
+
+#: public/js/drag_and_drop.js
+msgid "ok"
+msgstr "ok"
+
+#: public/js/drag_and_drop.js
+msgid "Item Bank"
+msgstr "Banco de itens"
+
+#: public/js/drag_and_drop.js
+msgid "Placed in: {zone_title}"
+msgstr "Posicionado em: {zone_title}"
+
+#: public/js/drag_and_drop.js
+msgid "Correctly placed in: {zone_title}"
+msgstr "Corretamente posicionado em: {zone_title}"
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:137
+msgid ", draggable, grabbed"
+msgstr ", arrastável, agarrado"
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:137
+msgid ", draggable"
+msgstr ", arrastável"
+
+#: public/js/drag_and_drop.js
+msgid "Reset"
+msgstr "Redefinir"
+
+#: public/js/drag_and_drop.js
+msgid "Show Answer"
+msgstr "Exibir resposta"
+
+#: public/js/drag_and_drop.js
+msgid "Hide Answer"
+msgstr "Ocultar resposta"
+
+#: public/js/drag_and_drop.js
+msgid "Feedback"
+msgstr "Comentário"
+
+#: public/js/drag_and_drop.js
+msgid "Keyboard Help"
+msgstr "Ajuda do Teclado"
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:305
+msgid "This is a screen reader-friendly problem"
+msgstr "Essa tela possui problemas de leitura amigável."
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:306
+msgid ""
+"You can complete this problem using only your keyboard by following the "
+"guidance below:"
+msgstr ""
+"Você pode completar esse problema usando seu teclado para seguir o guia "
+"abaixo:"
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:307
+msgid ""
+"Drag and Drop problems consist of draggable items and dropzones. Users "
+"should select a draggable item with their keyboard and then navigate to an "
+"appropriate dropzone to drop it."
+msgstr ""
+"Os problemas de arrastar e soltar consistem em itens arrastáveis e área de "
+"soltura. Usuários podem selecionar um item arrastável com seu teclado e "
+"navegar até um ponto apropriado para solta-lo. "
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:309
+msgid ""
+"Use only TAB and SHIFT+TAB to navigate between draggable items and drop "
+"zones."
+msgstr ""
+"Utilize somente TAB e SHIFT+TAB para navegar entre os intens arrastaveis e "
+"áreas para soltar."
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:310
+msgid "Press CTRL+M to select a draggable item (effectively picking it up)."
+msgstr ""
+"Aperte CTRL+M para selecionar um item arrastável (efetivamente pegando)"
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:311
+msgid ""
+"Navigate using TAB and SHIFT+TAB to the appropriate dropzone and press CTRL"
+"+M once more to drop it here."
+msgstr ""
+"Navegue utilizando TAB e SHIFT+TAB para a área de soltura apropriada "
+"pressionando CTRL+M uma vez mais para soltar aqui."
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:312
+msgid ""
+"Press ESC if you want to cancel the drop operation (for example, to select a "
+"different item)."
+msgstr ""
+"Pressione ESC se você deseja cancelar a operação de soltar (por exemplo, "
+"para selecionar um item diferente)."
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:313
+msgid ""
+"TAB back to the list of draggable items and repeat this process until all of "
+"the draggable items have been placed on their respective dropzones."
+msgstr ""
+"TAB voltar para a lista de itens arrastáveis e repetir esse processo até "
+"todos os itens arrastáveis estarem em suas respectivas áreas para soltar."
+
+#: public/js/drag_and_drop.js
+msgid "Go to Beginning"
+msgstr "Vá para o Início"
+
+#: public/js/drag_and_drop.js
+msgid "Problem"
+msgstr "Problema"
+
+#: public/js/drag_and_drop.js
+msgid "An error occurred. Unable to load drag and drop problem."
+msgstr ""
+"Ocorreu um erro. Não foi possível carregar o problema de arraste e solte."
+
+#: public/js/drag_and_drop.js
+msgid "You have used {used} of {total} attempts."
+msgstr "Você fez {used} das {total} tentativas."
+
+#: public/js/drag_and_drop.js
+msgid "Some of your answers were not correct."
+msgstr "Algumas de suas respostas não são corretas."
+
+#: public/js/drag_and_drop_edit.js
+msgid "There was an error with your form."
+msgstr "Ocorreu um erro com seu formulário."
+
+#: public/js/drag_and_drop_edit.js
+msgid "Please check over your submission."
+msgstr "Por favor, verifique seu envio."
+
+# Translators: {earned} is the number of points earned. {possible} is the
+# total number of points (examples: 0/1, 1/1, 2/3, 5/10). The total number of
+# points will always be at least 1. We pluralize based on the total number of
+# points (example: 0/1 point; 1/2 points).
+#: public/js/drag_and_drop.js:453
+msgid "{earned}/{possible} point (graded)"
+msgid_plural "{earned}/{possible} points (graded)"
+msgstr[0] "{earned}/{possible} ponto (corrigido)"
+msgstr[1] "{earned}/{possible} pontos (corrigidos)"
+
+# Translators: {earned} is the number of points earned. {possible} is the
+# total number of points (examples: 0/1, 1/1, 2/3, 5/10). The total number of
+# points will always be at least 1. We pluralize based on the total number of
+# points (example: 0/1 point; 1/2 points).
+#: public/js/drag_and_drop.js:459
+msgid "{earned}/{possible} point (ungraded)"
+msgid_plural "{earned}/{possible} points (ungraded)"
+msgstr[0] "{earned}/{possible} ponto (não corrigido)"
+msgstr[1] "{earned}/{possible} pontos (não corrigidos)"
+
+# Translators: {possible} is the number of points possible (examples: 1, 3,
+# 10).
+#: public/js/drag_and_drop.js:468
+msgid "{possible} point possible (graded)"
+msgid_plural "{possible} points possible (graded)"
+msgstr[0] "{possible} ponto possível (corrigido)"
+msgstr[1] "{possible} pontos possíveis (corrigidos)"
+
+# Translators: {possible} is the number of points possible (examples: 1, 3,
+# 10).
+#: public/js/drag_and_drop.js:474
+msgid "{possible} point possible (ungraded)"
+msgid_plural "{possible} points possible (ungraded)"
+msgstr[0] "{possible} ponto possível (não corrigido)"
+msgstr[1] "{possible} pontos possíveis (não corrigidos)"
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:374
+#: drag_and_drop_v2/public/js/drag_and_drop.js:839
+msgid "Hints:"
+msgstr "Dicas:"
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:224
+msgid ", dropzone"
+msgstr ", ponto de largada"
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:479
+msgid "Drag and Drop Problem"
+msgstr "Programa de Arrastar e Soltar"
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:509
+msgid "Drop Targets"
+msgstr "Destinos de Soltar"
+
+#: drag_and_drop_v2/public/js/drag_and_drop.js:12
+msgid "Submitting"
+msgstr "Enviando"
