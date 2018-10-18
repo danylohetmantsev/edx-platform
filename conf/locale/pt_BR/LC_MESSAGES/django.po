@@ -29693,6 +29693,22 @@ msgid "There {{ articles_plur_verb }} {{ cnt }} {{ articles_plur }} in this leve
 msgstr "Há {{ articles_plur_verb }} {{ cnt }} {{ articles_plur }} neste nível."
 
 
+msgid "\n"
+"        There %(articles_plur_verb)s %(cnt)s %(articles_plur)s in this level.\n"
+"      "
+msgstr "\n"
+"  Há %(articles_plur_verb)s %(cnt)s %(articles_plur)s neste nível.\n"
+"      "
+
+
+msgid "\n"
+"        %(cnt)s %(articles_plur)s in this level %(match_plur)s your search."
+"      "
+msgstr "\n"
+"        %(cnt)s %(articles_plur)s neste nível %(match_plur)s sua pesquisa."
+"      "
+
+
 #: wiki/templates/wiki/dir.html:56
 msgid "Last modified"
 msgstr "Última modificação"
