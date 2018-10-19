@@ -29687,6 +29687,28 @@ msgstr "é, são"
 msgid "There %(articles_plur_verb)s %(cnt)s %(articles_plur)s in this level."
 msgstr "Há %(articles_plur_verb)s %(cnt)s %(articles_plur)s neste nível."
 
+#: wiki/templates/wiki/dir.html:46
+#, python-format
+msgid "There {{ articles_plur_verb }} {{ cnt }} {{ articles_plur }} in this level."
+msgstr "Há {{ articles_plur_verb }} {{ cnt }} {{ articles_plur }} neste nível."
+
+
+msgid "\n"
+"        There %(articles_plur_verb)s %(cnt)s %(articles_plur)s in this level.\n"
+"      "
+msgstr "\n"
+"  Há %(articles_plur_verb)s %(cnt)s %(articles_plur)s neste nível.\n"
+"      "
+
+
+msgid "\n"
+"        %(cnt)s %(articles_plur)s in this level %(match_plur)s your search."
+"      "
+msgstr "\n"
+"        %(cnt)s %(articles_plur)s neste nível %(match_plur)s sua pesquisa."
+"      "
+
+
 #: wiki/templates/wiki/dir.html:56
 msgid "Last modified"
 msgstr "Última modificação"
@@ -33976,14 +33998,14 @@ msgid "Starbucks"
 msgstr "Starbucks"
 
 msgid ""
-"It happens millions of times each week – a customer receives a drink from a "
-"Starbucks barista – but each interaction is unique."
+"It happens millions of times each week a customer receives a drink from a "
+"Starbucks barista but each interaction is unique."
 msgstr ""
 "Isso acontece milhões de vezes por semana: um cliente recebe uma bebida de "
 "um barista do Starbucks. Mas, cada interação é única."
 
 msgid ""
-"It's just a moment in time – just one hand reaching over the counter to "
+"It's just a moment in time just one hand reaching over the counter to "
 "present a cup to another outstretched hand."
 msgstr ""
 "É apenas um momento no tempo: apenas uma mão estendida sobre o balcão para "
@@ -33993,11 +34015,11 @@ msgid "But it's a connection."
 msgstr "Mas é uma conexão."
 
 msgid ""
-"We make sure everything we do honors that connection – from our commitment "
+"We make sure everything we do honors that connection from our commitment "
 "to the highest quality coffee in the world, to the way we engage with our "
 "customers and communities"
 msgstr ""
-"Garantimos que tudo o que fazemos honre essa conexão - desde nosso "
+"Garantimos que tudo o que fazemos honre essa conexão desde nosso "
 "compromisso com o café da mais alta qualidade no mundo até a maneira como "
 "nos envolvemos com nossos clientes e"
 
@@ -34106,15 +34128,7 @@ msgid "ASU's Charter and Mission"
 msgstr "Carta e Missão da ASU"
 
 msgid ""
-"In addition to information and services provided on ASU websites, ASU may "
-"also provide connections to xternal services and information provided by non-"
-"ASU service providers. These non-ASU provided services may include the "
-"education versions of Dropbox, Amazon Web Services, and Google, which "
-"includes Gmail. Non-ASU service providers have their own privacy policies "
-"that are not covered by this Privacy Statement. ASU is not responsible for "
-"the privacy practices or policies of non-ASU service providers. We recommend "
-"you review the privacy practices and policies of all non-ASU service "
-"providers."
+"In addition to information and services provided on ASU websites, ASU may also provide connections to external services and information provided by non ASU service providers. These non ASU provided services may include the education versions of Dropbox, Amazon Web Services, and Google, which includes Gmail. Non ASU service providers have their own privacy policies that are not covered by this Privacy Statement. ASU is not responsible for the privacy practices or policies of non ASU service providers. We recommend you review the privacy practices and policies of all non ASU service providers."
 msgstr ""
 "Além das informações e serviços fornecidos nos sites da ASU, a ASU também "
 "pode fornecer conexões para serviços externos e informações fornecidas por "
@@ -34409,8 +34423,8 @@ msgstr ""
 "A ASU pode ser solicitada a fornecer acesso aos registros da ASU a terceiros "
 "de acordo com as leis de registros públicos do Arizona"
 
-msgid "ARS §§ 39-121 through 39-161"
-msgstr "ARS §§ 39-121 a 39-161"
+msgid "through"
+msgstr "a"
 
 msgid ""
 "Additional information about Arizona's public records laws is available at"
@@ -35096,11 +35110,8 @@ msgstr ""
 "Mark\"). The Starbucks Mark cannot be copied, imitated, or used, in whole or "
 "in part, without the prior written permission of Starbucks Corporation."
 
-msgid "2018 Arizona Board of Regents. All rights reserved."
-msgstr "2018 Arizona Board of Regents. Todos os direitos reservados."
-
-msgid "{year} Arizona Board of Regents. All rights reserved."
-msgstr "{year} Arizona Board of Regents. Todos os direitos reservados."
+msgid "Arizona Board of Regents. All rights reserved."
+msgstr "Arizona Board of Regents. Todos os direitos reservados."
 
 #: pdf/pdf.py:33
 msgid "PDF"
@@ -35243,3 +35254,22 @@ msgstr "Mostrando {firstIndex} de um total de {numItems}"
 
 msgid "You have not bookmarked any courseware pages yet "
 msgstr "Você ainda não favoritou nenhuma página do material didático"
+
+#: wiki/templates/wiki/dir.html:46
+#, python-format
+msgid "Answers are displayed within the problem"
+msgstr "As respostas são exibidas dentro do problema"
+
+
+
+msgid "Select an option from the list:"
+msgstr "As respostas são exibidas dentro do problema"
+
+
+#: poll/public/html/poll.html:64 poll/public/html/survey.html:73
+msgid "View results"
+msgstr "Ver os resultados"
+
+#: poll/public/html/poll.html:71 poll/public/html/survey.html:81
+msgid "Export results to CSV"
+msgstr "Exportar os resultados no formato CSV"
