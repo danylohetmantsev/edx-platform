@@ -1,0 +1,39 @@
+<br>
+<h3>Skillonomy History</h3>
+<br>
+<table style="font-size: 12px;text-align: center;">
+    <thead>
+        <tr class="table-responsive">
+            <th scope="col" style="padding: 5px">Wallet</th>
+            <th scope="col" style="padding: 5px">transaction_id</th>
+            <th scope="col" style="padding: 5px">status</th>
+            <th scope="col" style="padding: 5px">date</th>
+            <th scope="col" style="padding: 5px">lms_id</th>
+            <th scope="col" style="padding: 5px">event_type</th>
+            <th scope="col" style="padding: 5px">event_detail</th>
+            <th scope="col" style="padding: 5px">course_id</th>
+            <th scope="col" style="padding: 5px">amount</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        % for wallet in skillonomy_data:
+        <tr>
+                <td>${wallet or 'n/a'}</td>
+            % for transaction in skillonomy_data[wallet]:
+                <tr>
+                    <td></td>
+                    <td>${transaction['transaction_id']}</td>
+                    <td>${transaction['status']}</td>
+                    <td>${transaction['date']}</td>
+                    <td>${transaction['lms_id']}</td>
+                    <td>${transaction['event_type']}</td>
+                    <td>${transaction['event_detail']}</td>
+                    <td>${transaction['course_id']}</td>
+                    <td>${transaction['amount']}</td>
+                </tr>
+            % endfor
+        </tr>
+        % endfor
+    </tbody>
+</table>

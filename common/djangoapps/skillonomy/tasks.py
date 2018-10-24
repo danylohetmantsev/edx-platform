@@ -1,0 +1,27 @@
+import logging
+from celery.task import task
+
+from api_calls import APICalls
+from xmodule.modulestore.django import modulestore
+from opaque_keys.edx.keys import CourseKey
+import requests
+from urlparse import urljoin
+
+
+log = logging.getLogger(__name__)
+
+
+@task()
+def send_api_request(data):
+    """
+    Send data to Skillonomy API
+    """
+    base_url = urljoin(data.get('base_url'), data.get('path', ''))
+
+    log.info("Data to be sent - {}".format(data))
+
+    response = requests.post(base_url, data=data.get('payload'), headers={
+        "HTTP_SECRET": data.get("secret"),
+        "HTTP_KEY": data.get("key")
+    })
+    log.info("Skillonomy response: status - {}, content - {}".format(response.status_code, response.content))

@@ -1025,6 +1025,52 @@ class CourseEnrollment(models.Model):
         ).format(self.user, self.course_id, self.created, self.is_active)
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+
+        from xmodule.modulestore.django import modulestore
+        from django.contrib.sites.models import Site
+        from skillonomy.tasks import send_api_request
+
+        SKILLONOMY_FIELDS = (
+            'skillonomy_base_url',
+            'skillonomy_secret',
+            'skillonomy_key',
+        )
+
+        def _is_valid(fields):
+            for field in SKILLONOMY_FIELDS:
+                if not fields.get(field):
+                    log.error('Field "{}" is improperly configured.'.format(field))
+                    return False
+            return True
+
+        org = self.course_id.org
+        course_id = unicode(self.course_id)
+        course_key = CourseKey.from_string(course_id)
+        course = modulestore().get_course(course_key)
+        skillonomy_fields = {
+            'skillonomy_secret': course.skillonomy_secret,
+            'skillonomy_key': course.skillonomy_key,
+            'skillonomy_base_url': course.skillonomy_base_url
+        }
+        if course.skillonomy_enabled:
+            if _is_valid(skillonomy_fields):
+                payload = {
+                    'student_id': "{}:{}".format(self.user.email, Site.objects.get_current().domain),
+                    'course_id': course_id,
+                    'org': org,
+                    'event_type': 1,
+                    'uid': '{}_{}'.format(self.user.pk, course_id),
+                }
+
+                data = {
+                    'payload': payload,
+                    'secret': course.skillonomy_secret,
+                    'key': course.skillonomy_key,
+                    'base_url': course.skillonomy_base_url,
+                    'path': '/api/transactions/store'
+                }
+                send_api_request.delay(data)
+
         super(CourseEnrollment, self).save(force_insert=force_insert, force_update=force_update, using=using,
                                            update_fields=update_fields)
 
