@@ -35793,3 +35793,7 @@ msgstr "Opções internas:"
 #: mentoring/templates/html/ratingblock_edit_preview.html:14
 msgid "Additional custom choices and tips:"
 msgstr "Opções e dicas personalizadas adicionais:"
+
+#: pdf/pdf.py:40 pdf/static/html/pdf_edit.html:18
+msgid "The URL of the PDF file"
+msgstr "O URL para o seu arquivo PDF"
