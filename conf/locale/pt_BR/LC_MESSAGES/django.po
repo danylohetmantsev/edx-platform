@@ -35797,3 +35797,19 @@ msgstr "Opções e dicas personalizadas adicionais:"
 #: pdf/pdf.py:40 pdf/static/html/pdf_edit.html:18
 msgid "The URL of the PDF file"
 msgstr "O URL para o seu arquivo PDF"
+
+#: lms/templates/courses_list.html:29
+msgid "Show more courses"
+msgstr "OMostrar mais cursos"
+
+#:lms/templates/index.html:22
+msgid "Welcome to Starbucks Global Academy"
+msgstr "Bem-vindo à Academia Global do Starbucks"
+
+#:lms/templates/index.html:24
+msgid "Powered by"
+msgstr "Distribuído por"
+
+#: lms/templates/courses_list.html:10
+msgid "Our Latest Academy Courses:"
+msgstr "Nossos últimos cursos da academia:"
