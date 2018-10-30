@@ -35,9 +35,9 @@ class CreateUserAccountWithoutPasswordView(APIView):
     """
     authentication_classes = (OAuth2AuthenticationAllowInactiveUser,)
     permission_classes = (ApiKeyHeaderPermission,)
+    FIRST_ADDITIONAL_INDEX = 1
     
     _error_dict = {
-        "username": "Username is required parameter.",
         "email": "Email is required parameter.",
         "country": (
             "Country is incorrect or missed: {value}. For checking: Visit https://www.iso.org/obp . "
@@ -62,13 +62,24 @@ class CreateUserAccountWithoutPasswordView(APIView):
         
         try:
             email = self._check_available_required_params(request.data.get('email'), "email")
-            username = self._check_available_required_params(request.data.get('username'), "username")
             # NOTE(AndreyLykhoman): countries.by_name function returns country code or '' if country isn't found.
             country = self._check_available_required_params(countries.by_name(request.data.get('country')), "country")
             language = self._check_available_required_params(request.data.get('language'), 'language', ['en', 'pt-br'])
+            username = request.data.get('username')
             if check_account_exists(username=username, email=email):
                 return Response(data={"error_message": "User already exists"}, status=status.HTTP_409_CONFLICT)
-
+            
+            if not username:
+                slug = email.split("@")[0]
+                base_username = slug.replace('.', '_')
+                username = base_username
+                additional_index = self.FIRST_ADDITIONAL_INDEX
+                while User.objects.filter(username=username).exists():
+                    username = "{0}{1}".format(base_username, additional_index)
+                    additional_index += 1
+                else:
+                    data['username'] = username
+            
             data['name'] = "{} {}".format(first_name, last_name).strip() if first_name or last_name else username
             data['password'] = uuid4().hex
             data['country'] = country
