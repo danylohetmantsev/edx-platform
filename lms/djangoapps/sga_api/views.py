@@ -63,7 +63,9 @@ class CreateUserAccountWithoutPasswordView(APIView):
         try:
             email = self._check_available_required_params(request.data.get('email'), "email")
             # NOTE(AndreyLykhoman): countries.by_name function returns country code or '' if country isn't found.
-            country = self._check_available_required_params(countries.by_name(request.data.get('country')), "country")
+            country = self._check_available_required_params(countries.by_name(
+                self._change_name_of_counry(request.data.get('country'))
+            ), "country")
             language = self._check_available_required_params(request.data.get('language'), 'language', ['en', 'pt-br'])
             username = request.data.get('username')
             if check_account_exists(username=username, email=email):
@@ -72,7 +74,7 @@ class CreateUserAccountWithoutPasswordView(APIView):
             if not username:
                 slug = email.split("@")[0]
                 chars_to_remove = "!#$%&'*+-/=?^_`{|}~."
-                base_username = slug.translate(None, chars_to_remove)
+                base_username = slug.translate(chars_to_remove)
                 username = base_username
                 additional_index = self.FIRST_ADDITIONAL_INDEX
                 while User.objects.filter(username=username).exists():
@@ -118,7 +120,11 @@ class CreateUserAccountWithoutPasswordView(APIView):
         if not parameter or (values_list and isinstance(values_list, list) and parameter not in values_list):
             raise ValueError(self._error_dict[parameter_name].format(value=parameter))
         return parameter
-        
+    
+    def _change_name_of_counry(self, name):
+        if name == "Brasil":
+            return "Brazil"
+        return name
 
     @staticmethod
     def send_activation_email(request):
