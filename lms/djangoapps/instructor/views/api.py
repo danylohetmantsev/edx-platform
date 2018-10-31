@@ -659,8 +659,8 @@ def create_and_register_users_without_email(request):
     for email in list(new_users_to_register):
         identifier = email.split('@')[0]
         details = identifiers_raw.get(identifier)
-        name = '{}'.format(details.get('firstname'))
-        last_name = '{}'.format(details.get('lastname'))
+        name = details.get('firstname')
+        last_name = details.get('lastname')
         password = '{}12345'.format(identifier)
         user_exists =\
             User.objects.filter(Q(username=identifier)|Q(email=email)).exists()
