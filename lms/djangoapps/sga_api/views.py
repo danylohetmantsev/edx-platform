@@ -71,7 +71,8 @@ class CreateUserAccountWithoutPasswordView(APIView):
             
             if not username:
                 slug = email.split("@")[0]
-                base_username = slug.replace('.', '_')
+                chars_to_remove = "!#$%&'*+-/=?^_`{|}~."
+                base_username = slug.translate(None, chars_to_remove)
                 username = base_username
                 additional_index = self.FIRST_ADDITIONAL_INDEX
                 while User.objects.filter(username=username).exists():
