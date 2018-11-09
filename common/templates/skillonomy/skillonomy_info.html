@@ -1,39 +1,51 @@
-<br>
-<h3>Skillonomy History</h3>
-<br>
-<table style="font-size: 12px;text-align: center;">
-    <thead>
-        <tr class="table-responsive">
-            <th scope="col" style="padding: 5px">Wallet</th>
-            <th scope="col" style="padding: 5px">transaction_id</th>
-            <th scope="col" style="padding: 5px">status</th>
-            <th scope="col" style="padding: 5px">date</th>
-            <th scope="col" style="padding: 5px">lms_id</th>
-            <th scope="col" style="padding: 5px">event_type</th>
-            <th scope="col" style="padding: 5px">event_detail</th>
-            <th scope="col" style="padding: 5px">course_id</th>
-            <th scope="col" style="padding: 5px">amount</th>
-        </tr>
+<div style="margin: 0 auto;text-align: center;">
+    <br>
+    <h3>Skillonomy History</h3>
+    <br>
+    <table style="font-size: 12px;text-align: center;border: #3c3c3c 1px solid;display: table; margin:0 auto;">
+        <thead>
+            <tr class="table-responsive">
+                <th scope="col" style="padding: 5px; border:1px solid;">Wallet</th>
+                <th scope="col" style="padding: 5px; border:1px solid;">transaction_id</th>
+                <th scope="col" style="padding: 5px; border:1px solid;">status</th>
+                <th scope="col" style="padding: 5px; border:1px solid;">date</th>
+                <th scope="col" style="padding: 5px; border:1px solid;">lms_id</th>
+                <th scope="col" style="padding: 5px; border:1px solid;">event_type</th>
+                <th scope="col" style="padding: 5px; border:1px solid;">event_detail</th>
+                <th scope="col" style="padding: 5px; border:1px solid;">course_id</th>
+                <th scope="col" style="padding: 5px; border:1px solid;">amount</th>
+            </tr>
 
-    </thead>
-    <tbody>
-        % for wallet in skillonomy_data:
-        <tr>
-                <td>${wallet or 'n/a'}</td>
-            % for transaction in skillonomy_data[wallet]:
-                <tr>
+        </thead>
+        <tbody>
+            % for wallet in skillonomy_data:
+            <tr>
+                % if len(skillonomy_data[wallet]):
+                    <td>${wallet or 'n/a'}</td>
                     <td></td>
-                    <td>${transaction['transaction_id']}</td>
-                    <td>${transaction['status']}</td>
-                    <td>${transaction['date']}</td>
-                    <td>${transaction['lms_id']}</td>
-                    <td>${transaction['event_type']}</td>
-                    <td>${transaction['event_detail']}</td>
-                    <td>${transaction['course_id']}</td>
-                    <td>${transaction['amount']}</td>
-                </tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    % for transaction in skillonomy_data[wallet]:
+                        <tr>
+                            <td style="border:1px solid;"></td>
+                            <td style="border:1px solid;">${transaction['transaction_id']}</td>
+                            <td style="border:1px solid;">${transaction['status']}</td>
+                            <td style="border:1px solid;">${transaction['date']}</td>
+                            <td style="border:1px solid;">${transaction['lms_id']}</td>
+                            <td style="border:1px solid;">${transaction['event_type']}</td>
+                            <td style="border:1px solid;">${transaction['event_detail']}</td>
+                            <td style="border:1px solid;">${transaction['course_id']}</td>
+                            <td style="border:1px solid;">${transaction['amount']}</td>
+                        </tr>
+                    % endfor
+                % endif
+            </tr>
             % endfor
-        </tr>
-        % endfor
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
