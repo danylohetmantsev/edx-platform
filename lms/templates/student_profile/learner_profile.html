@@ -7,6 +7,7 @@ import json
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from openedx.core.djangolib.js_utils import dump_js_escaped_json
+from skillonomy.utils import get_balance
 %>
 
 <%block name="pagetitle">${_("Learner Profile")}</%block>
@@ -15,6 +16,8 @@ from openedx.core.djangolib.js_utils import dump_js_escaped_json
 
 <div class="message-banner" aria-live="polite"></div>
 <main id="main" aria-label="Content" tabindex="-1">
+        <span>${data['skillonomy_balance']}</span>
+    <%include file="/skillonomy/update_wallet.html"/>
     <div class="wrapper-profile">
         <div class="ui-loading-indicator">
             <p><span class="spin"><span class="icon fa fa-refresh" aria-hidden="true"></span></span> <span class="copy">${_("Loading")}</span></p>
@@ -24,7 +27,6 @@ from openedx.core.djangolib.js_utils import dump_js_escaped_json
 <%block name="headextra">
     <%static:css group='style-course'/>
 </%block>
-
 <%block name="js_extra">
 <%static:require_module module_name="js/student_profile/views/learner_profile_factory" class_name="LearnerProfileFactory">
     var options = ${data | n, dump_js_escaped_json};
