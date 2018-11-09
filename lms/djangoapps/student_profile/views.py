@@ -71,9 +71,9 @@ def learner_profile_context(request, profile_username, user_is_staff):
     preferences_data = get_user_preferences(profile_user, profile_username)
 
     import requests
+    import json
     from django.contrib.sites.models import Site
 
-    # import pdb;pdb.set_trace()
     d = {
         'student_id': request.user.email,
         'lms_url': Site.objects.get_current().domain
@@ -81,7 +81,7 @@ def learner_profile_context(request, profile_username, user_is_staff):
     skillonomy_resp = requests.post('http://195.160.222.156/api/wallet/balance', data=d)
     context = {
         'data': {
-            'skillonomy_balance': skillonomy_resp.content,
+            'skillonomy_balance': json.loads(skillonomy_resp.content),
             'profile_user_id': profile_user.id,
             'default_public_account_fields': settings.ACCOUNT_VISIBILITY_CONFIGURATION['public_fields'],
             'default_visibility': settings.ACCOUNT_VISIBILITY_CONFIGURATION['default_visibility'],
