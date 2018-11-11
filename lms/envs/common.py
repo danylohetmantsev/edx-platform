@@ -2253,7 +2253,7 @@ INSTALLED_APPS = (
     'openedx.features.enterprise_support',
 
     'experiments',
-    'skillonomy',
+    'edeos',
 )
 
 ######################### CSRF #########################################

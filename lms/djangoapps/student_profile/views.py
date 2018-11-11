@@ -78,10 +78,10 @@ def learner_profile_context(request, profile_username, user_is_staff):
         'student_id': request.user.email,
         'lms_url': Site.objects.get_current().domain
     }
-    skillonomy_resp = requests.post('http://195.160.222.156/api/wallet/balance', data=d)
+    edeos_resp = requests.post('http://195.160.222.156/api/wallet/balance', data=d)
     context = {
         'data': {
-            'skillonomy_balance': json.loads(skillonomy_resp.content),
+            'edeos_balance': json.loads(edeos_resp.content),
             'profile_user_id': profile_user.id,
             'default_public_account_fields': settings.ACCOUNT_VISIBILITY_CONFIGURATION['public_fields'],
             'default_visibility': settings.ACCOUNT_VISIBILITY_CONFIGURATION['default_visibility'],

@@ -12,19 +12,19 @@ class APICalls(object):
     """
 
     def __init__(self):
-        self.is_enabled = settings.FEATURES.get('ENABLE_SKILLONOMY', False)
+        self.is_enabled = settings.FEATURES.get('ENABLE_EDEOS', False)
         if self.is_enabled:
-            self.SKILLONOMY_PROPERTIES = settings.FEATURES.get('SKILLONOMY_PROPERTIES', {})
-            if not self.SKILLONOMY_PROPERTIES:
+            self.EDEOS_PROPERTIES = settings.FEATURES.get('EDEOS_PROPERTIES', {})
+            if not self.EDEOS_PROPERTIES:
                 raise ImproperlyConfigured(
-                    "You must set `SKILLONOMY_PROPERTIES` when "
-                    "`FEATURES['ENABLE_SKILLONOMY']` is True."
+                    "You must set `EDEOS_PROPERTIES` when "
+                    "`FEATURES['ENABLE_EDEOS']` is True."
                 )
             required_params = ("API_URL", "APP_KEY", "APP_SECRET")
             for param in required_params:
-                if param not in self.SKILLONOMY_PROPERTIES:
+                if param not in self.EDEOS_PROPERTIES:
                     raise ImproperlyConfigured(
-                        "You must set `{}` in `SKILLONOMY_PROPERTIES`".format(param)
+                        "You must set `{}` in `EDEOS_PROPERTIES`".format(param)
                     )
 
     def api_call(self, course_id, org, username, event_type, uid):
@@ -36,11 +36,11 @@ class APICalls(object):
             'uid': uid,
         }
         headers = {
-            'App-key': self.SKILLONOMY_PROPERTIES['APP_KEY'],
-            'App-secret': self.SKILLONOMY_PROPERTIES['APP_SECRET']
+            'App-key': self.EDEOS_PROPERTIES['APP_KEY'],
+            'App-secret': self.EDEOS_PROPERTIES['APP_SECRET']
         }
         requests.put(
-            self.SKILLONOMY_PROPERTIES['API_URL']+'gamma-profile/',
+            self.EDEOS_PROPERTIES['API_URL']+'gamma-profile/',
             data=data,
             headers=headers,
             verify=False

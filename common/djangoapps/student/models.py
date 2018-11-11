@@ -1028,16 +1028,16 @@ class CourseEnrollment(models.Model):
 
         from xmodule.modulestore.django import modulestore
         from django.contrib.sites.models import Site
-        from skillonomy.tasks import send_api_request
+        from edeos.tasks import send_api_request
 
-        SKILLONOMY_FIELDS = (
-            'skillonomy_base_url',
-            'skillonomy_secret',
-            'skillonomy_key',
+        edeos_FIELDS = (
+            'edeos_base_url',
+            'edeos_secret',
+            'edeos_key',
         )
 
         def _is_valid(fields):
-            for field in SKILLONOMY_FIELDS:
+            for field in edeos_FIELDS:
                 if not fields.get(field):
                     log.error('Field "{}" is improperly configured.'.format(field))
                     return False
@@ -1047,13 +1047,13 @@ class CourseEnrollment(models.Model):
         course_id = unicode(self.course_id)
         course_key = CourseKey.from_string(course_id)
         course = modulestore().get_course(course_key)
-        skillonomy_fields = {
-            'skillonomy_secret': course.skillonomy_secret,
-            'skillonomy_key': course.skillonomy_key,
-            'skillonomy_base_url': course.skillonomy_base_url
+        edeos_fields = {
+            'edeos_secret': course.edeos_secret,
+            'edeos_key': course.edeos_key,
+            'edeos_base_url': course.edeos_base_url
         }
-        if course.skillonomy_enabled:
-            if _is_valid(skillonomy_fields):
+        if course.edeos_enabled:
+            if _is_valid(edeos_fields):
                 payload = {
                     'student_id': "{}:{}".format(self.user.email, Site.objects.get_current().domain),
                     'course_id': course_id,
@@ -1064,9 +1064,9 @@ class CourseEnrollment(models.Model):
 
                 data = {
                     'payload': payload,
-                    'secret': course.skillonomy_secret,
-                    'key': course.skillonomy_key,
-                    'base_url': course.skillonomy_base_url,
+                    'secret': course.edeos_secret,
+                    'key': course.edeos_key,
+                    'base_url': course.edeos_base_url,
                     'path': '/api/transactions/store'
                 }
                 send_api_request.delay(data)

@@ -347,16 +347,16 @@ def course_info(request, course_id):
 
         import requests
         from django.contrib.sites.models import Site
-        skillonomy_post_data = {
+        edeos_post_data = {
             "student_id": request.user.email,
             "lms_url": Site.objects.get_current().domain,
             "course_id": course.id.to_deprecated_string()
         }
 
-        respons = requests.post('http://195.160.222.156/api/transactions', data=skillonomy_post_data)
+        respons = requests.post('http://195.160.222.156/api/transactions', data=edeos_post_data)
 
         context.update({
-            "skillonomy_data": json.loads(respons.content)
+            "edeos_data": json.loads(respons.content)
         })
 
         # Get the URL of the user's last position in order to display the 'where you were last' message

@@ -167,15 +167,15 @@ class TextbookList(List):
 
 
 class CourseFields(object):
-    skillonomy_enabled = Boolean(display_name='Skillonomy API', scope=Scope.settings,
+    edeos_enabled = Boolean(display_name='EdEos API', scope=Scope.settings,
                                  help=_('Enter "true" or "false". Enable/Disable feature'),
                                  default=False)
-    skillonomy_base_url = String(display_name='Skillonomy Base url', scope=Scope.settings, default="",
-                                 help=_('Skillonomy API base url in the following format: "https://example.com"'))
-    skillonomy_secret = String(display_name='Skillonomy Secret', scope=Scope.settings, default="",
-                               help=_('Skillonomy secret'))
-    skillonomy_key = String(display_name='Skillonomy Key', scope=Scope.settings, default="",
-                            help=_('Skillonomy Key'))
+    edeos_base_url = String(display_name='EdEos Base url', scope=Scope.settings, default="",
+                                 help=_('EdEos API base url in the following format: "https://example.com"'))
+    edeos_secret = String(display_name='EdEos Secret', scope=Scope.settings, default="",
+                               help=_('EdEos secret'))
+    edeos_key = String(display_name='EdEos Key', scope=Scope.settings, default="",
+                            help=_('EdEos Key'))
     lti_passports = List(
         display_name=_("LTI Passports"),
         help=_('Enter the passports for course LTI tools in the following format: "id:client_key:client_secret".'),

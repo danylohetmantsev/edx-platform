@@ -16,7 +16,7 @@ from django.core.urlresolvers import reverse
         $('#generate-wallet').click(function(e){
             e.preventDefault();
             $.ajax({
-                url: "${reverse('skillonomy:generate-wallet')}",
+                url: "${reverse('edeos:generate-wallet')}",
                 type: "post",
                 success: showResponse
             })

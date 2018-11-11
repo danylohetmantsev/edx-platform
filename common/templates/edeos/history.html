@@ -1,8 +1,8 @@
-<a href="#" class="show"><span class="show-text">Show</span> <span>skillonomy history</span></a>
-<div style="margin: 0 auto;text-align: center;" class="skillonomy-history hidden">
-    % if any(skillonomy_data):
+<a href="#" class="show"><span class="show-text">Show</span> <span>edeos history</span></a>
+<div style="margin: 0 auto;text-align: center;" class="edeos-history hidden">
+    % if any(edeos_data):
         <br>
-        <h3>Skillonomy History</h3>
+        <h3>EdEos History</h3>
         <br>
         <table style="font-size: 12px;text-align: center;border: #3c3c3c 1px solid;display: table; margin:0 auto;">
             <thead>
@@ -20,7 +20,7 @@
 
             </thead>
             <tbody>
-                % for wallet in skillonomy_data:
+                % for wallet in edeos_data:
                     <tr>
                         <td>${wallet or 'n/a'}</td>
                         <td></td>
@@ -31,7 +31,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        % for transaction in skillonomy_data[wallet]:
+                        % for transaction in edeos_data[wallet]:
                             <tr>
                                 <td style="border:1px solid;"></td>
                                 <td style="border:1px solid;">${transaction['transaction_id']}</td>
@@ -50,7 +50,7 @@
         </table>
     % else:
         <h6>You don't have any wallets yet.</h6>
-        <%include file="/skillonomy/get_wallet.html" />
+        <%include file="/edeos/get_wallet.html" />
     % endif
 </div>
 <script type="text/javascript">
@@ -62,7 +62,7 @@
                 Show: 'Hide'
             };
             $('.show-text').text(textMapping[$('.show-text').text()]);
-            $('.skillonomy-history').toggleClass('hidden');
+            $('.edeos-history').toggleClass('hidden');
         });
     });
 </script>

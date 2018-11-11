@@ -47,9 +47,9 @@ urlpatterns = (
 
     url(r'^heartbeat$', include('openedx.core.djangoapps.heartbeat.urls')),
 
-    # skillonomy urls
+    # edeos urls
 
-    url(r'^skillonomy/', include('skillonomy.urls', namespace="skillonomy")),
+    url(r'^edeos/', include('edeos.urls', namespace="edeos")),
 
     # Note: these are older versions of the User API that will eventually be
     # subsumed by api/user listed below.

@@ -1,9 +1,6 @@
 import logging
 from celery.task import task
 
-from api_calls import APICalls
-from xmodule.modulestore.django import modulestore
-from opaque_keys.edx.keys import CourseKey
 import requests
 from urlparse import urljoin
 from django.core.cache import cache
@@ -15,7 +12,7 @@ log = logging.getLogger(__name__)
 @task()
 def send_api_request(data):
     """
-    Send data to Skillonomy API
+    Send data to edeos API
     """
     base_url = urljoin(data.get('base_url'), data.get('path', ''))
     cache_key = '{}:{}:{}'.format(
@@ -32,4 +29,4 @@ def send_api_request(data):
         })
         if response.status_code == 200:
             cache.set(cache_key, True, 30)
-        log.info("Skillonomy response: status - {}, content - {}".format(response.status_code, response.content))
+        log.info("Edeos response: status - {}, content - {}".format(response.status_code, response.content))
